@@ -12,7 +12,7 @@ const wait = require('util').promisify(setTimeout);
 const Canvas = require("canvas");
 const jimp = require("jimp");
 let points = {}
-var prefix = "#";
+var prefix = "-";
 const YouTube = require('simple-youtube-api');
 const queue = new Map();
 const { Client, Util } = require('discord.js');
@@ -149,7 +149,7 @@ client.on("message", message => {
 
 
 client.on('message',async message => {
-  if(message.content.startsWith("#voice")) {
+  if(message.content.startsWith("-voice")) {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
   if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
   message.channel.send('✅| **تم عمل الروم بنجاح**');
@@ -169,7 +169,7 @@ client.on('message',async message => {
 
 
 client.on('message', message => {
-        if (message.content.startsWith("#uptime")) {
+        if (message.content.startsWith("-uptime")) {
     let ms = client.uptime;
     let cd = 24 * 60 * 60 * 1000; // Calc days
     let ch = 60 * 60 * 1000; // Calc hours
@@ -237,7 +237,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   
-if (message.content.startsWith('#perm')) {
+if (message.content.startsWith('-perm')) {
          if(!message.channel.guild) return;
          var perms = JSON.stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
          var zPeRms = new Discord.RichEmbed()
@@ -251,7 +251,7 @@ if (message.content.startsWith('#perm')) {
 
 
 client.on('message', function(message) {
-    if(message.content.startsWith('#roll')) {
+    if(message.content.startsWith('-roll')) {
         let args = message.content.split(" ").slice(1);
         if (!args[0]) {
             message.channel.send('**حط رقم معين يتم السحب منه**');
@@ -382,7 +382,7 @@ client.on('message',function(message) {
 
 
 
-const adminprefix = "#vip";
+const adminprefix = "-vip";
 const developers = ['494164834049327125'];
 
 client.on('message', message => {
@@ -418,7 +418,7 @@ if (message.content.startsWith(adminprefix + 'sa')) {
 });
 client.on('message', message => {
     if (message.author.bot) return;
-     if (message.content ==="#help") {
+     if (message.content ==="-help") {
 		 message.channel.send('**تم ارسالك في الخاص**');
             
 	
@@ -490,7 +490,7 @@ if (message.author.bot) return;
 
 client.on('message', message => {
     if (message.author.bot) return;
-     if (message.content === "#invite") {
+     if (message.content === "-invite") {
 
 
  message.author.sendMessage(`
@@ -506,7 +506,7 @@ message.channel.send('**تم الارسال في الخاص**');
 
 client.on('message', message => {
     if (message.author.bot) return;
-     if (message.content === "#support") {
+     if (message.content === "-support") {
 
 
  message.author.sendMessage(`**
@@ -521,17 +521,17 @@ message.channel.send('**تم الارسال في الخاص**');
 
 
 client.on('message', function(msg) {
-    if(msg.content.startsWith ('#server')) {
+    if(msg.content.startsWith ('-server')) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('** الرتب**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('** عدد الاعضاء**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('** عدد الاعضاء الاونلاين**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('** الرومات الكتابية**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('** رومات الصوت**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+      .setTitle(`Showing Details Of  **${msg.guild.name}**`)
+      .addField('** نوع السيرفر**',`[** ${msg.guild.region}**]`,true)
+      .addField('** الرتب**',`[** ${msg.guild.roles.size} **]`,true)
+      .addField('** عدد الاعضاء**',`[** ${msg.guild.memberCount} **]`,true)
+      .addField('** عدد الاعضاء الاونلاين**',`[** ${msg.guild.members.filter(m=>m.presence.status == 'online').size} **]`,true)
+      .addField('** الرومات الكتابية**',`[** ${msg.guild.channels.filter(m => m.type === 'text').size}** ]`,true)
+      .addField('** رومات الصوت**',`[** ${msg.guild.channels.filter(m => m.type === 'voice').size} **]`,true)
       .addField('** الأونـر**',`**${msg.guild.owner}**`,true)
       .addField('** ايدي السيرفر**',`**${msg.guild.id}**`,true)
       .addField('** تم عمل السيرفر في**',msg.guild.createdAt.toLocaleString())
@@ -541,7 +541,7 @@ client.on('message', function(msg) {
 
 
 client.on("message", message => {
-    if (message.content.startsWith("#bc")) {
+    if (message.content.startsWith("-bc")) {
                  if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
@@ -585,7 +585,7 @@ client.on('message', message => {
 
 
   client.on('message', (message) => {
-    if (message.content.startsWith('#kick')) {
+    if (message.content.startsWith('-kick')) {
         var member= message.mentions.members.first();
         member.kick().then((member) => {
             message.channel.send(member.displayName + ' **keeck from the server ! :airplane:  **');
@@ -602,7 +602,7 @@ client.on('message', message => {
 
 
 client.on('message', (message) => {
-    if (message.content.startsWith('#ban ')) {
+    if (message.content.startsWith('-ban ')) {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
         var member= message.mentions.members.first();
         member.ban().then((member) => {
@@ -622,7 +622,7 @@ client.on('message', (message) => {
 client.on("message", message => {    
           if(!message.channel.guild) return;
    if(message.author.bot) return;
-      if(message.content === "#avatar server"){ 
+      if(message.content === "-avatar server"){ 
           const embed = new Discord.RichEmbed()
   
       .setTitle(`صورة ** ${message.guild.name} **`)
@@ -636,7 +636,7 @@ client.on("message", message => {
 
 
 client.on('message', message => {
-     if (message.content === "#bot") {
+     if (message.content === "-bot") {
             if(!message.channel.guild) return message.reply('** This command only for servers **');
      let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -669,7 +669,7 @@ m.sendMessage(args)
 
 
 client.on('message', message => {
-    if (message.content === "#date") {
+    if (message.content === "-date") {
         var currentTime = new Date(),
             السنة = currentTime.getFullYear(),
             الشهر = currentTime.getMonth() + 1,
@@ -680,7 +680,7 @@ client.on('message', message => {
 
   
 client.on("message", (message) => {
-if (message.content.startsWith("#ct")) {
+if (message.content.startsWith("-ct")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'text');
@@ -691,7 +691,7 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 
 
 client.on("message", (message) => {
-if (message.content.startsWith("#cv")) {
+if (message.content.startsWith("-cv")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'voice');
@@ -712,7 +712,7 @@ client.on('message' , message => {
 
 
 client.on('message', message => {
-    if (message.content.startsWith("#avatar")) {
+    if (message.content.startsWith("-avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
@@ -863,7 +863,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
 
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Pure"));
+    member.addRole(member.guild.roles.find("name","- Member"));
     });
 
 
@@ -871,15 +871,9 @@ client.on('guildMemberAdd', member=> {
 
 
 
-  client.on("guildMemberAdd", member => {
-    member.createDM().then(function (channel) {
-        return channel.send(`**
-``Welcome To Pure Shop``
-		${member}**`) 
-    }).catch(console.error)
-})
 
-var prefix = "#"
+
+var prefix = "-"
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
    
