@@ -881,7 +881,7 @@ client.on("message", (message) => {
     message.channel.send({ embed: embed });
   }
  
-  if (message.content.toLowerCase().startsWith(prefix + `ping`)) {
+  if (message.content.toLowerCase().startsWith(prefix + `564154554`)) {
     message.channel.send(`Hoold on!`).then(m => {
     m.edit(`:ping_pong: Wew, made it over the ~waves~ ! **Pong!**\nMessage edit time is ` + (m.createdTimestamp - message.createdTimestamp) + `ms, Discord API heartbeat is ` + Math.round(client.ping) + `ms.`);
     });
