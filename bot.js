@@ -332,8 +332,8 @@ client.on('message',function(message) {
 
 
 
-const adminprefix = "Dv";
-const developers = ['525434548939653151'];
+const adminprefix = "#vip";
+const developers = ['494164834049327125'];
 
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
